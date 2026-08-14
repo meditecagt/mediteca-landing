@@ -91,13 +91,9 @@ body{
   border-bottom:var(--regla);
 }
 .marca{
-  font-variation-settings:'wdth' 125,'wght' 500;
-  font-size:clamp(26px,4.6vw,52px);
-  letter-spacing:0.06em;
-  display:inline-flex;
-  align-items:center;
-  gap:0.06em;
-  line-height:1;
+  width:clamp(200px,26vw,340px);
+  height:auto;
+  display:block;
 }
 .cruz{
   display:inline-grid;
@@ -344,10 +340,7 @@ input:focus-visible,select:focus-visible{border-bottom-color:var(--senal)}
 
 <!-- ============ PORTADA ============ -->
 <header class="portada">
-  <div class="marca">
-    MEDI<span class="cruz" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" fill="currentColor"/></svg></span>ECA
-  </div>
-
+  <img src="/logo.svg" alt="Mediteca" class="marca">
   <h1>Tu agenda llena de pacientes que sí llegan</h1>
 
   <p>Instalamos el sistema completo que convierte a quien busca un especialista en una cita confirmada en tu calendario.</p>
