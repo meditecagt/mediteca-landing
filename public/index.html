@@ -28,6 +28,14 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1450244940261272&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K8D1QLB8G2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K8D1QLB8G2');
+</script>
    
 <meta name="description" content="Instalamos el sistema completo que convierte a quien busca un especialista en una cita confirmada en tu calendario.">
 
@@ -761,18 +769,28 @@ document.querySelectorAll('.pestana').forEach(function(b){
 document.getElementById('formulario').addEventListener('submit',function(e){
   e.preventDefault();
   var f=e.target;
-var califica = f.presupuesto.value!=='Menos de Q750' && f.consultorio.value!=='Todavía no';  var boton=f.querySelector('button[type="submit"]');
+  var califica = f.presupuesto.value!=='Menos de Q750' && f.consultorio.value!=='Todavía no';
+  var boton=f.querySelector('button[type="submit"]');
   boton.disabled=true; boton.textContent='Enviando...';
 
   fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
     .then(function(r){
       if(!r.ok) throw new Error('fallo');
+
       if(typeof fbq==='function'){
         fbq('track','Lead',{
           content_name: f.especialidad.value,
           content_category: califica ? 'calificado' : 'espera'
         });
       }
+
+      if(typeof gtag==='function'){
+        gtag('event','generate_lead',{
+          especialidad: f.especialidad.value,
+          calificado: califica ? 'si' : 'no'
+        });
+      }
+
       document.getElementById('ficha').classList.add('enviado');
       document.getElementById(califica?'aprobado':'espera').classList.add('visible');
       document.getElementById('ficha').scrollIntoView({block:'center'});
@@ -782,7 +800,6 @@ var califica = f.presupuesto.value!=='Menos de Q750' && f.consultorio.value!=='T
       document.getElementById('errorEnvio').style.display='block';
     });
 });
-
 /* --- Barra fija --- */
 (function(){
   var barra=document.getElementById('barraFija'), top=document.getElementById('top');
