@@ -674,11 +674,13 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <input type="hidden" name="referente">
         <input type="hidden" name="pagina">
 
-        <div class="envio">
+            <div class="envio">
           <button type="submit" class="boton">Enviar ficha</button>
           <p class="nota">Respondemos por WhatsApp dentro de las 24 horas hábiles.</p>
+          <p id="errorEnvio" style="display:none;color:#B4453A;font-size:13px;margin-top:12px">
+            No pudimos enviar la ficha. Escribinos por WhatsApp al +502 5200 3502.
+          </p>
         </div>
-      </form>
 
       <div class="resultado" id="aprobado">
         <span class="sello">Ficha recibida</span>
@@ -761,10 +763,26 @@ document.getElementById('formulario').addEventListener('submit',function(e){
   e.preventDefault();
   var f=e.target;
   var califica = f.presupuesto.value!=='bajo' && f.consultorio.value!=='no';
-  fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).catch(function(){});
-  document.getElementById('ficha').classList.add('enviado');
-  document.getElementById(califica?'aprobado':'espera').classList.add('visible');
-  document.getElementById('ficha').scrollIntoView({block:'center'});
+  var boton=f.querySelector('button[type="submit"]');
+  boton.disabled=true; boton.textContent='Enviando...';
+
+  fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(!r.ok) throw new Error('fallo');
+      if(typeof fbq==='function'){
+        fbq('track','Lead',{
+          content_name: f.especialidad.value,
+          content_category: califica ? 'calificado' : 'espera'
+        });
+      }
+      document.getElementById('ficha').classList.add('enviado');
+      document.getElementById(califica?'aprobado':'espera').classList.add('visible');
+      document.getElementById('ficha').scrollIntoView({block:'center'});
+    })
+    .catch(function(){
+      boton.disabled=false; boton.textContent='Enviar ficha';
+      document.getElementById('errorEnvio').style.display='block';
+    });
 });
 
 /* --- Barra fija --- */
@@ -799,15 +817,6 @@ document.getElementById('formulario').addEventListener('submit',function(e){
     });
   });
 })();
-
-/* --- Pixel Meta --- */
-     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).catch(function(){});
-     if(typeof fbq==='function'){
-    fbq('track','Lead',{
-      content_name: f.especialidad.value,
-      content_category: califica ? 'calificado' : 'espera'
-    });
-  }
    
 </script>
 
