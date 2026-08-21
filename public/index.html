@@ -218,6 +218,53 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   html{scroll-behavior:auto}
   .barra-fija{transition:none}
 }
+
+   /* ---------- Inversión ---------- */
+.destacado{
+  border:var(--regla);background:var(--tinta);color:var(--papel);
+  padding:22px 28px;margin-top:40px;
+  font-variation-settings:'wdth' 112,'wght' 500;
+  font-size:clamp(15px,1.7vw,19px);
+}
+.tabla-envoltura{overflow-x:auto;margin-top:40px;border:var(--regla)}
+.tabla-inversion{width:100%;border-collapse:collapse;min-width:680px;background:var(--blanco)}
+.tabla-inversion th,.tabla-inversion td{
+  padding:14px 18px;text-align:center;border-bottom:var(--regla);font-size:14px;
+}
+.tabla-inversion thead th{background:var(--papel);vertical-align:bottom;padding-top:22px}
+.tabla-inversion th:first-child,.tabla-inversion td:first-child{
+  text-align:left;width:34%;
+  position:sticky;left:0;background:var(--blanco);
+  border-right:var(--regla);
+}
+.tabla-inversion thead th:first-child{background:var(--papel)}
+.fase{
+  display:block;font-variation-settings:'wdth' 125,'wght' 500;
+  text-transform:uppercase;font-size:14px;letter-spacing:0.02em;
+}
+.cuando{
+  display:block;margin-top:6px;opacity:.5;
+  text-transform:uppercase;letter-spacing:0.14em;font-size:10px;
+}
+.fila-dato td{background:var(--papel);font-variation-settings:'wdth' 100,'wght' 500}
+.fila-dato td:first-child{background:var(--papel)}
+.fila-inversion td{
+  background:var(--tinta);color:var(--papel);border-bottom:none;
+  font-variation-settings:'wdth' 125,'wght' 500;
+  text-transform:uppercase;font-size:clamp(18px,2.4vw,26px);padding:26px 18px;
+}
+.fila-inversion td:first-child{
+  background:var(--tinta);font-size:11px;letter-spacing:0.18em;
+  font-variation-settings:'wdth' 100,'wght' 500;
+}
+.detalle-precio{
+  display:block;margin-top:6px;opacity:.55;
+  font-variation-settings:'wdth' 100,'wght' 400;
+  text-transform:none;letter-spacing:0;font-size:12px;
+}
+.ancla{text-align:center;margin-top:48px}
+.ancla .intro{margin-inline:auto}
+.ancla p:not(.intro){max-width:46ch;margin:12px auto 0;opacity:.7}
 </style>
 </head>
 <body>
@@ -410,8 +457,59 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
     </div>
   </div>
 </section>
+<!-- ================= 08 · INVERSIÓN ================= -->
+<section class="seccion revela">
+  <div class="encabezado etiqueta"><span>Mediteca</span><span>Inversión</span><span>08</span></div>
+  <div class="cuerpo">
+    <h2>Qué incluye y cuánto cuesta</h2>
+    <p class="intro">Un solo servicio con tres momentos de cobro. Sin planes, sin niveles, sin letra chica.</p>
 
-<!-- ================= 08 · ADMISIÓN ================= -->
+    <div class="destacado">Nunca vas a abrir Meta Ads. Vos atendés pacientes, nosotros movemos la pauta.</div>
+
+    <div class="tabla-envoltura">
+      <table class="tabla-inversion">
+        <thead>
+          <tr>
+            <th class="etiqueta"></th>
+            <th><span class="fase">Instalación</span><span class="cuando">Una sola vez</span></th>
+            <th><span class="fase">Operación</span><span class="cuando">Cada mes</span></th>
+            <th><span class="fase">Renovación</span><span class="cuando">Cada 4–6 meses</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Página de captación</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Formulario de filtrado</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Automatización de WhatsApp</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Calendario conectado</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Perfiles y cuentas configuradas</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Medición y atribución</td><td>●</td><td>—</td><td>—</td></tr>
+          <tr><td>Sesión de fotos y video</td><td>●</td><td>—</td><td>●</td></tr>
+          <tr><td>Guion y dirección de contenido</td><td>●</td><td>—</td><td>●</td></tr>
+          <tr><td>Estructura de campañas</td><td>●</td><td>●</td><td>●</td></tr>
+          <tr><td>Gestión de la cuenta de anuncios</td><td>—</td><td>●</td><td>—</td></tr>
+          <tr><td>Ajustes y optimización</td><td>—</td><td>●</td><td>—</td></tr>
+          <tr><td>Reporte mensual e insights</td><td>—</td><td>●</td><td>—</td></tr>
+          <tr><td>Soporte directo</td><td>—</td><td>●</td><td>—</td></tr>
+          <tr class="fila-dato"><td>Tiempo de entrega</td><td>3 meses</td><td>Continuo</td><td>2 semanas</td></tr>
+          <tr class="fila-dato"><td>Compromiso mínimo</td><td>—</td><td>6 meses</td><td>—</td></tr>
+          <tr class="fila-inversion">
+            <td>Inversión</td>
+            <td>Q6,000<span class="detalle-precio">en 3 cuotas</span></td>
+            <td>Q600<span class="detalle-precio">al mes</span></td>
+            <td>Q4,500<span class="detalle-precio">por sesión</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ancla">
+      <p class="intro">La operación mensual cuesta menos que una consulta.</p>
+      <p>Con un paciente nuevo al mes, el sistema ya se pagó solo. El resto del mes trabaja para vos.</p>
+      <a href="#admision" class="boton" style="margin-top:28px">Agendar una llamada</a>
+    </div>
+  </div>
+</section>
+<!-- ================= 09 · ADMISIÓN ================= -->
 <section class="seccion oscuro" id="admision">
   <div class="encabezado etiqueta"><span>Mediteca</span><span>Admisión</span><span>08</span></div>
   <div class="cuerpo" style="text-align:center">
