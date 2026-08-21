@@ -640,19 +640,18 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
             <label for="consultorio"><span class="n">04</span>¿Tenés consultorio operando?</label>
             <select id="consultorio" name="consultorio" required>
               <option value="">Seleccioná una opción</option>
-              <option value="si">Sí, ya estoy atendiendo</option>
-              <option value="pronto">Abro en menos de 3 meses</option>
-              <option value="no">Todavía no</option>
+              <option value="Sí, ya atiende">Sí, ya estoy atendiendo</option>
+              <option value="Abre en menos de 3 meses">Abro en menos de 3 meses</option>
+              <option value="Todavía no">Todavía no</option>
             </select>
           </div>
           <div class="campo">
             <label for="presupuesto"><span class="n">05</span>Presupuesto mensual para publicidad</label>
             <select id="presupuesto" name="presupuesto" required>
-              <option value="">Seleccioná una opción</option>
-              <option value="bajo">Menos de Q750</option>
-              <option value="a">Entre Q750 y Q2,000</option>
-              <option value="b">Entre Q2,000 y Q5,000</option>
-              <option value="c">Más de Q5,000</option>
+              <option value="Menos de Q750">Menos de Q750</option>
+              <option value="Q750 - Q2,000">Entre Q750 y Q2,000</option>
+              <option value="Q2,000 - Q5,000">Entre Q2,000 y Q5,000</option>
+              <option value="Más de Q5,000">Más de Q5,000</option>
             </select>
           </div>
           <div class="campo">
@@ -762,8 +761,7 @@ document.querySelectorAll('.pestana').forEach(function(b){
 document.getElementById('formulario').addEventListener('submit',function(e){
   e.preventDefault();
   var f=e.target;
-  var califica = f.presupuesto.value!=='bajo' && f.consultorio.value!=='no';
-  var boton=f.querySelector('button[type="submit"]');
+var califica = f.presupuesto.value!=='Menos de Q750' && f.consultorio.value!=='Todavía no';  var boton=f.querySelector('button[type="submit"]');
   boton.disabled=true; boton.textContent='Enviando...';
 
   fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
