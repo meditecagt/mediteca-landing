@@ -157,6 +157,7 @@ p+p{margin-top:1.05em}
 .encabezado span:nth-child(2){text-align:right}
 .cuerpo{max-width:var(--max);margin:0 auto;padding:clamp(56px,8vw,110px) var(--pad)}
 .oscuro{background:var(--tinta);color:var(--papel);border-bottom-color:rgba(239,239,239,.3)}
+.blanca{background:var(--blanco)}
 .oscuro .encabezado{border-bottom-color:rgba(239,239,239,.3)}
 
 /* ---------- Tratamiento fotográfico ---------- */
@@ -190,12 +191,12 @@ p+p{margin-top:1.05em}
 /* ---------- 01 · Problema: flujo ---------- */
 .flujo{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
 @media(min-width:900px){.flujo{grid-template-columns:repeat(4,1fr)}}
-.flujo li{background:var(--blanco);padding:26px 24px 30px;position:relative}
+.flujo li{background:var(--papel);padding:26px 24px 30px;position:relative}
 .flujo li:last-child{background:var(--tinta);color:var(--papel)}
 .flujo .n{font-variation-settings:'wdth' 125,'wght' 500;font-size:13px;opacity:.45;display:block;margin-bottom:14px}
 .flujo strong{font-variation-settings:'wdth' 112,'wght' 500;font-weight:normal;text-transform:uppercase;font-size:18px;line-height:1.15;display:block}
 .flujo li:not(:last-child)::after{
-  content:'';position:absolute;z-index:2;background:var(--papel);border:var(--regla);
+  content:'';position:absolute;z-index:2;background:var(--blanco);border:var(--regla);
   width:14px;height:14px;transform:rotate(45deg);
   left:24px;bottom:-8px;border-top:none;border-left:none;
 }
@@ -208,7 +209,7 @@ p+p{margin-top:1.05em}
 .pasos{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
 @media(min-width:700px){.pasos{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1150px){.pasos{grid-template-columns:repeat(5,1fr)}}
-.paso5{background:var(--papel);padding:26px 22px;display:flex;flex-direction:column}
+.paso5{background:var(--blanco);padding:26px 22px;display:flex;flex-direction:column}
 .paso5 .num{font-variation-settings:'wdth' 125,'wght' 500;font-size:13px;opacity:.45;margin-bottom:12px}
 .paso5 h3{font-size:20px;margin-bottom:14px}
 .equivale{background:var(--sereno-claro);padding:12px 14px;margin-bottom:16px}
@@ -224,7 +225,7 @@ p+p{margin-top:1.05em}
 @media(min-width:900px){.reparto{grid-template-columns:3fr 2fr}}
 .reparto>div{padding:clamp(28px,4vw,52px)}
 .reparto .nuestro{background:var(--tinta);color:var(--papel)}
-.reparto .tuyo{background:var(--blanco)}
+.reparto .tuyo{background:var(--papel)}
 .reparto h3{font-size:18px;margin-bottom:20px}
 .reparto .nuestro h3{color:var(--sereno)}
 .reparto li{padding:12px 0;border-top:1px solid currentColor;border-top-color:rgba(38,44,58,.18);font-size:16px}
@@ -244,7 +245,7 @@ p+p{margin-top:1.05em}
 /* ---------- Bloque partido ---------- */
 .partido{display:grid;border:var(--regla);background:var(--tinta)}
 @media(min-width:900px){.partido{grid-template-columns:1fr 1fr}}
-.partido>.texto{background:var(--papel);padding:clamp(30px,4.4vw,68px);display:flex;flex-direction:column;justify-content:center}
+.partido>.texto{background:var(--blanco);padding:clamp(30px,4.4vw,68px);display:flex;flex-direction:column;justify-content:center}
 .partido>.foto{min-height:340px}
 @media(min-width:900px){.partido.invertido>.texto{order:2}}
 
@@ -260,7 +261,7 @@ p+p{margin-top:1.05em}
 
 /* ---------- 06 · Inversión ---------- */
 .cabeza-inversion{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
-.moneda{display:inline-flex;border:var(--regla);background:var(--blanco)}
+.moneda{display:inline-flex;border:var(--regla);background:var(--papel)}
 .moneda button{
   font-family:inherit;border:none;background:transparent;color:var(--tinta);cursor:pointer;
   font-variation-settings:'wdth' 100,'wght' 600;text-transform:uppercase;letter-spacing:0.14em;font-size:12px;
@@ -272,7 +273,7 @@ p+p{margin-top:1.05em}
 
 .planes{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:36px}
 @media(min-width:960px){.planes{grid-template-columns:repeat(3,1fr)}}
-.plan{background:var(--blanco);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column}
+.plan{background:var(--papel);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column}
 .plan .cuando{opacity:.55;display:block;margin-bottom:10px}
 .plan h3{font-size:22px;margin-bottom:22px}
 .precio{padding:18px 0 20px;border-top:var(--regla);border-bottom:var(--regla);margin-bottom:22px}
@@ -285,7 +286,6 @@ p+p{margin-top:1.05em}
 .plan.destacado-plan .precio{border-color:rgba(239,239,239,.35)}
 .plan.destacado-plan li{border-bottom-color:rgba(239,239,239,.16)}
 
-.no-incluye{background:var(--papel);border:var(--regla);border-top:none;padding:18px clamp(26px,3vw,38px);font-size:14px}
 
 .pagos-titulo{margin-top:64px}
 .pagos{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:24px}
@@ -346,6 +346,10 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 .resultado h3{font-size:clamp(19px,2.4vw,27px);margin-bottom:12px}
 .sello{display:inline-block;border:2px solid var(--tinta);padding:8px 18px;margin-bottom:22px;font-variation-settings:'wdth' 100,'wght' 600;text-transform:uppercase;letter-spacing:0.2em;font-size:11px}
 .admision.enviado .barra,.admision.enviado form{display:none}
+.campo-cabeza{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.campo-cabeza label{margin-bottom:0}
+.moneda-mini{background:var(--blanco)}
+.moneda-mini button{padding:6px 12px;min-width:0;font-size:10px}
 
 /* ---------- Barra fija inferior ---------- */
 .barra-fija{
@@ -382,7 +386,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   <a href="#top" class="nav-logo"><img src="/img/logo.svg" alt="Mediteca"></a>
 
   <div class="nav-enlaces" id="navEnlaces">
-    <a href="#s01">Problema</a>
+    <a href="#s01">Oportunidad</a>
     <a href="#s02">Cómo funciona</a>
     <a href="#s05">Caso</a>
     <a href="#s06">Inversión</a>
@@ -407,7 +411,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 
     <div class="datos">
       <div class="dato"><strong>8 años</strong><span>conectando pacientes con médicos especialistas</span></div>
-      <div class="dato"><strong>$5 – $10</strong><span>costo promedio por paciente</span></div>
+      <div class="dato"><strong data-cambia data-gtq="Q40 – Q80" data-usd="$5 – $10">Q40 – Q80</strong><span>costo promedio por paciente</span></div>
       <div class="dato"><strong>+100</strong><span>pacientes agendados en los primeros 6 meses</span></div>
       <div class="dato"><strong>GT · SV</strong><span>Guatemala y El Salvador</span></div>
     </div>
@@ -415,20 +419,20 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 </header>
 
 <!-- ================= 01 · PROBLEMA ================= -->
-<section class="seccion" id="s01">
-  <div class="encabezado etiqueta"><span>Problema</span><span>01</span></div>
+<section class="seccion blanca" id="s01">
+  <div class="encabezado etiqueta"><span>Oportunidad</span><span>01</span></div>
   <div class="cuerpo">
-    <h2>Publicar no es lo mismo que anunciar</h2>
-    <p class="intro">Es lo más común cuando se pauta sin dirección: el WhatsApp se llena de preguntas y tu asistente pierde tiempo con personas que nunca iban a venir.</p>
+    <h2>Cada anuncio, frente a la persona que te necesita</h2>
+    <p class="intro">Cuando un anuncio llega a la persona indicada, tu WhatsApp recibe pacientes reales y tu asistente dedica su tiempo a quienes van a llegar a tu consulta.</p>
 
     <ol class="flujo">
-      <li><span class="n">01</span><strong>Anuncio a cualquier persona</strong></li>
-      <li><span class="n">02</span><strong>Muchos mensajes</strong></li>
-      <li><span class="n">03</span><strong>Pocos pacientes</strong></li>
-      <li><span class="n">04</span><strong>No se sabe qué funcionó</strong></li>
+      <li><span class="n">01</span><strong>Anuncio dirigido a tu paciente ideal</strong></li>
+      <li><span class="n">02</span><strong>Mensajes de personas interesadas</strong></li>
+      <li><span class="n">03</span><strong>Citas en tu agenda</strong></li>
+      <li><span class="n">04</span><strong>Sabes qué anuncio funcionó</strong></li>
     </ol>
 
-    <p class="remate">Mediteca decide a quién se le muestra cada anuncio y mide cuáles traen pacientes.</p>
+    <p class="remate">Mediteca elige a quién se le muestra cada anuncio y mide cuál trae pacientes. Así cada <span data-cambia data-gtq="quetzal" data-usd="dólar">quetzal</span> trabaja para tu consulta.</p>
   </div>
 </section>
 
@@ -480,7 +484,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 </section>
 
 <!-- ================= 03 · QUIÉN HACE QUÉ ================= -->
-<section class="seccion" id="s03">
+<section class="seccion blanca" id="s03">
   <div class="encabezado etiqueta"><span>Quién hace qué</span><span>03</span></div>
   <div class="cuerpo">
     <h2>Tú atiendes. Nosotros hacemos el resto.</h2>
@@ -506,7 +510,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         </ul>
       </div>
     </div>
-    <p class="nota-final">Nunca tienes que entrar a Facebook a manejar anuncios.</p>
+    <p class="nota-final">Los anuncios quedan en nuestras manos; tu tiempo queda para tus pacientes.</p>
   </div>
 </section>
 
@@ -548,7 +552,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <h2 style="font-size:clamp(24px,3.4vw,40px)">Dr. Carlos Castillo Amaya</h2>
         <p class="intro" style="margin-bottom:18px">Traumatología y Ortopedia · Zona 10, Ciudad de Guatemala</p>
         <p>Más de un año de campaña continua. Pacientes llegando a consulta y reconociendo al doctor por sus anuncios.</p>
-        <p>Esa campaña nos enseñó algo que hoy aplicamos desde el primer día: el momento decisivo no es el clic, es lo que pasa en los siguientes diez minutos.</p>
+        <p>Esa campaña nos enseñó algo que hoy aplicamos desde el primer día: el momento decisivo está en los diez minutos que siguen al clic.</p>
         <div class="verificar">
           <span class="etiqueta">Verifica el resultado</span>
           <div class="verificar-enlaces">
@@ -567,13 +571,13 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 </section>
 
 <!-- ================= 06 · INVERSIÓN ================= -->
-<section class="seccion" id="s06">
+<section class="seccion blanca" id="s06">
   <div class="encabezado etiqueta"><span>Inversión</span><span>06</span></div>
   <div class="cuerpo">
     <div class="cabeza-inversion">
       <div>
         <h2 style="margin-bottom:18px">Qué incluye y cuánto cuesta</h2>
-        <p class="intro">Un solo servicio con tres momentos de cobro. Sin planes, sin niveles, sin letra chica.</p>
+        <p class="intro">Un solo servicio, tres momentos de cobro y todo a la vista desde el primer día.</p>
       </div>
       <div>
         <div class="moneda" role="group" aria-label="Moneda">
@@ -589,11 +593,12 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <span class="cuando etiqueta">Una sola vez</span>
         <h3>Instalación</h3>
         <div class="precio">
-          <span class="monto" data-gtq="Q6,075" data-usd="$795">Q6,075</span>
+          <span class="monto" data-cambia data-gtq="Q6,075" data-usd="$795">Q6,075</span>
           <span class="forma">En 3 cuotas · listo en 3 meses</span>
         </div>
         <span class="incluye-titulo etiqueta">Incluye</span>
         <ul>
+          <li>Logo y manual de marca sencillo para el lanzamiento</li>
           <li>Tu página web</li>
           <li>Configuración de Facebook e Instagram para anunciarte</li>
           <li>WhatsApp empresarial conectado a los anuncios</li>
@@ -607,7 +612,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <span class="cuando etiqueta">Cada mes</span>
         <h3>Manejo mensual</h3>
         <div class="precio">
-          <span class="monto" data-gtq="Q650" data-usd="$85">Q650</span>
+          <span class="monto" data-cambia data-gtq="Q650" data-usd="$85">Q650</span>
           <span class="forma">Al mes · compromiso mínimo de 6 meses</span>
         </div>
         <span class="incluye-titulo etiqueta">Incluye</span>
@@ -623,7 +628,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <span class="cuando etiqueta">Cada 4 a 6 meses</span>
         <h3>Renovación</h3>
         <div class="precio">
-          <span class="monto" data-gtq="Q4,200" data-usd="$550">Q4,200</span>
+          <span class="monto" data-cambia data-gtq="Q4,200" data-usd="$550">Q4,200</span>
           <span class="forma">Por sesión · lista en 2 semanas</span>
         </div>
         <span class="incluye-titulo etiqueta">Incluye</span>
@@ -634,7 +639,6 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         </ul>
       </div>
     </div>
-    <p class="no-incluye"><strong>No incluye:</strong> publicaciones diarias en redes, respuesta a comentarios ni diseño de logo.</p>
 
     <h3 class="pagos-titulo">Cómo se paga</h3>
     <p style="max-width:56ch">Además de Mediteca, hay un tercer pago: lo que cobran Facebook e Instagram por mostrar tus anuncios.</p>
@@ -681,7 +685,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 </section>
 
 <!-- ================= 08 · PREGUNTAS ================= -->
-<section class="seccion" id="s08">
+<section class="seccion blanca" id="s08">
   <div class="encabezado etiqueta"><span>Preguntas</span><span>08</span></div>
   <div class="cuerpo">
     <h2>Preguntas frecuentes</h2>
@@ -689,15 +693,15 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
     <div class="preguntas">
       <details>
         <summary>¿El presupuesto de anuncios está incluido?</summary>
-        <div class="respuesta">No. Lo defines tú y se paga directamente a Facebook e Instagram. No es ganancia de Mediteca: va completo a mostrar tus anuncios.</div>
+        <div class="respuesta">Se maneja aparte: lo defines tú y se paga directamente a Facebook e Instagram. Va completo a mostrar tus anuncios.</div>
       </details>
       <details>
         <summary>¿Quién responde a los pacientes?</summary>
-        <div class="respuesta">Tú o tu asistente. Las conversaciones con pacientes requieren criterio médico, por eso Mediteca no responde preguntas clínicas.</div>
+        <div class="respuesta">Tú o tu asistente. Las conversaciones con pacientes requieren criterio médico, por eso quedan en tus manos.</div>
       </details>
       <details>
-        <summary>¿Tengo que aprender a usar Facebook?</summary>
-        <div class="respuesta">No. Nosotros creamos y manejamos los anuncios. Tú solo atiendes los mensajes que llegan a tu WhatsApp.</div>
+        <summary>¿Quién maneja los anuncios?</summary>
+        <div class="respuesta">Nosotros los creamos y los manejamos. Tú solo atiendes los mensajes que llegan a tu WhatsApp.</div>
       </details>
       <details>
         <summary>¿Hay un compromiso mínimo?</summary>
@@ -708,8 +712,8 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <div class="respuesta">Que tu asistente responda el WhatsApp en menos de 15 minutos, que anote cada día si el paciente llegó, y que aprueben los textos de los anuncios en 48 horas.</div>
       </details>
       <details>
-        <summary>¿Qué no incluye el servicio?</summary>
-        <div class="respuesta">Publicaciones diarias en redes, respuesta a comentarios ni diseño de logo. Nos enfocamos solo en que los pacientes lleguen a tu consulta.</div>
+        <summary>¿En qué se enfoca el servicio?</summary>
+        <div class="respuesta">En lo que trae pacientes: anuncios dirigidos, medición y la infraestructura para atenderlos. Las publicaciones diarias en redes y la respuesta a comentarios se manejan aparte, para que todo el presupuesto apunte a tu agenda.</div>
       </details>
       <details>
         <summary>¿Trabajan fuera de Guatemala?</summary>
@@ -725,7 +729,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   <div class="cuerpo">
     <h2>Cómo empezamos</h2>
     <div class="proceso">
-      <div class="paso"><span class="num">01</span><h3>Llamada</h3><p>Treinta minutos. Tu especialidad, tu consultorio, tus objetivos. Sales de ahí con un plan claro, trabajemos juntos o no.</p></div>
+      <div class="paso"><span class="num">01</span><h3>Llamada</h3><p>Treinta minutos. Tu especialidad, tu consultorio, tus objetivos. Sales de ahí con un plan claro para tu consulta.</p></div>
       <div class="paso"><span class="num">02</span><h3>Instalación</h3><p>Construimos el sistema completo. Tú solo grabas una sesión de contenido con guion listo.</p></div>
       <div class="paso"><span class="num">03</span><h3>Lanzamiento</h3><p>Encendemos las campañas con todo medido desde el primer día.</p></div>
       <div class="paso"><span class="num">04</span><h3>Operación</h3><p>Optimizamos mes a mes. Informe mensual con los tres números que importan.</p></div>
@@ -778,12 +782,19 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
             </select>
           </div>
           <div class="campo">
-            <label for="presupuesto"><span class="n">05</span>Presupuesto mensual para publicidad</label>
+            <div class="campo-cabeza">
+              <label for="presupuesto"><span class="n">05</span>Presupuesto mensual para publicidad</label>
+              <div class="moneda moneda-mini" role="group" aria-label="Moneda del presupuesto">
+                <button type="button" data-moneda="gtq" aria-pressed="true">GTQ</button>
+                <button type="button" data-moneda="usd" aria-pressed="false">USD</button>
+              </div>
+            </div>
             <select id="presupuesto" name="presupuesto" required>
-              <option value="Menos de Q750">Menos de Q750</option>
-              <option value="Q750 - Q2,000">Entre Q750 y Q2,000</option>
-              <option value="Q2,000 - Q5,000">Entre Q2,000 y Q5,000</option>
-              <option value="Más de Q5,000">Más de Q5,000</option>
+              <option value="">Selecciona una opción</option>
+              <option data-v-gtq="Menos de Q750" data-t-gtq="Menos de Q750" data-v-usd="Menos de $100" data-t-usd="Menos de $100" value="Menos de Q750">Menos de Q750</option>
+              <option data-v-gtq="Q750 - Q2,000" data-t-gtq="Entre Q750 y Q2,000" data-v-usd="$100 - $250" data-t-usd="Entre $100 y $250" value="Q750 - Q2,000">Entre Q750 y Q2,000</option>
+              <option data-v-gtq="Q2,000 - Q5,000" data-t-gtq="Entre Q2,000 y Q5,000" data-v-usd="$250 - $650" data-t-usd="Entre $250 y $650" value="Q2,000 - Q5,000">Entre Q2,000 y Q5,000</option>
+              <option data-v-gtq="Más de Q5,000" data-t-gtq="Más de Q5,000" data-v-usd="Más de $650" data-t-usd="Más de $650" value="Más de Q5,000">Más de Q5,000</option>
             </select>
           </div>
           <div class="campo">
@@ -842,7 +853,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 
       <div>
         <h3 class="etiqueta">Navegación</h3>
-        <a href="#s01">Problema</a>
+        <a href="#s01">Oportunidad</a>
         <a href="#s02">Cómo funciona</a>
         <a href="#s05">Caso</a>
         <a href="#s06">Inversión</a>
@@ -875,11 +886,16 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 /* --- Moneda GTQ / USD --- */
 (function(){
   var botones=document.querySelectorAll('.moneda button');
-  var montos=document.querySelectorAll('.monto');
+  var cambian=document.querySelectorAll('[data-cambia]');
+  var opciones=document.querySelectorAll('#presupuesto option[data-v-gtq]');
   var oculto=document.getElementById('monedaVista');
   function aplicar(m){
     botones.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.moneda===m ? 'true':'false')});
-    montos.forEach(function(el){el.textContent = el.getAttribute('data-'+m)});
+    cambian.forEach(function(el){el.textContent = el.getAttribute('data-'+m)});
+    opciones.forEach(function(o){
+      o.value = o.getAttribute('data-v-'+m);
+      o.textContent = o.getAttribute('data-t-'+m);
+    });
     if(oculto) oculto.value=m;
   }
   botones.forEach(function(b){
@@ -904,7 +920,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 document.getElementById('formulario').addEventListener('submit',function(e){
   e.preventDefault();
   var f=e.target;
-  var califica = f.presupuesto.value!=='Menos de Q750' && f.consultorio.value!=='Todavía no';
+  var califica = f.presupuesto.value.indexOf('Menos de')!==0 && f.consultorio.value!=='Todavía no';
   var boton=f.querySelector('button[type="submit"]');
   boton.disabled=true; boton.textContent='Enviando...';
 
