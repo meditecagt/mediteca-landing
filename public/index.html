@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="Mediteca" />
 <link rel="manifest" href="/site.webmanifest" />
-   
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mediteca — Sistemas de adquisición de pacientes</title>
-   <!-- Meta Pixel Code -->
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,6 +29,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1450244940261272&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8D1QLB8G2"></script>
 <script>
@@ -36,8 +38,8 @@ src="https://www.facebook.com/tr?id=1450244940261272&ev=PageView&noscript=1"
   gtag('js', new Date());
   gtag('config', 'G-K8D1QLB8G2');
 </script>
-   
-<meta name="description" content="Instalamos el sistema completo que convierte a quien busca un especialista en una cita confirmada en tu calendario.">
+
+<meta name="description" content="Instalamos tu página web, tus anuncios en Facebook e Instagram y tu WhatsApp empresarial para que las personas que buscan un especialista lleguen a tu consulta.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,24 +49,26 @@ src="https://www.facebook.com/tr?id=1450244940261272&ev=PageView&noscript=1"
 /* ============================================================
    MEDITECA
    Identidad: manual institucional (paleta, tipografía, reglas)
-   Arquitectura: página de producto contemporánea
+   Arquitectura: pitch deck — problema, modelo, tracción, inversión
    ============================================================ */
 
 :root{
   --papel:#EFEFEF;
   --tinta:#262C3A;
   --sereno:#87BC87;
+  --sereno-claro:#E3EEE3;
   --protocolo:#73B3C5;
   --senal:#004CFF;
   --blanco:#FFFFFF;
   --regla:1px solid var(--tinta);
+  --regla-clara:1px solid rgba(239,239,239,.28);
   --max:1360px;
   --pad:clamp(20px,5vw,72px);
   --nav:64px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:var(--nav)}
 body{
   background:var(--papel);
   color:var(--tinta);
@@ -75,16 +79,17 @@ body{
   padding-bottom:70px;
 }
 img{display:block;max-width:100%}
+ul{list-style:none}
 
 /* ---------- Tipografía ---------- */
 .etiqueta{
   font-variation-settings:'wdth' 100,'wght' 500;
   text-transform:uppercase;letter-spacing:0.18em;
-  font-size:11px;line-height:1;
+  font-size:11px;line-height:1.3;
 }
 h1,h2{font-variation-settings:'wdth' 125,'wght' 500;text-transform:uppercase;letter-spacing:-0.012em;line-height:1.03}
 h1{font-size:clamp(32px,6.4vw,82px);max-width:15ch}
-h2{font-size:clamp(26px,4.2vw,52px);max-width:18ch;margin-bottom:26px}
+h2{font-size:clamp(26px,4.2vw,52px);max-width:20ch;margin-bottom:26px}
 h3{font-variation-settings:'wdth' 112,'wght' 500;text-transform:uppercase;font-size:15px;letter-spacing:0.03em;margin-bottom:10px}
 .intro{font-size:clamp(17px,1.9vw,21px);line-height:1.42;max-width:52ch}
 p+p{margin-top:1.05em}
@@ -97,11 +102,40 @@ p+p{margin-top:1.05em}
   background:var(--papel);border-bottom:var(--regla);
 }
 .nav img{height:34px;width:auto}
-.marca-texto{font-variation-settings:'wdth' 125,'wght' 500;text-transform:uppercase;letter-spacing:0.14em;font-size:15px}
+.nav-logo{text-decoration:none;color:inherit;display:flex;align-items:center;flex-shrink:0}
+.nav-derecha{display:flex;align-items:center;gap:14px}
+.nav-enlaces{display:flex;gap:26px}
+.nav-enlaces a{
+  color:inherit;text-decoration:none;
+  font-variation-settings:'wdth' 100,'wght' 500;
+  text-transform:uppercase;letter-spacing:0.14em;font-size:11px;
+  opacity:.65;transition:opacity .18s ease;
+}
+.nav-enlaces a:hover{opacity:1}
 .boton-nav{
   background:var(--senal);color:#fff;text-decoration:none;
   font-variation-settings:'wdth' 100,'wght' 600;
-  text-transform:uppercase;letter-spacing:0.12em;font-size:11px;padding:12px 22px;
+  text-transform:uppercase;letter-spacing:0.12em;font-size:11px;padding:12px 22px;white-space:nowrap;
+}
+.nav-boton{display:none;background:none;border:var(--regla);width:40px;height:36px;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0}
+.nav-boton span{display:block;width:16px;height:1.5px;background:var(--tinta);transition:transform .2s ease,opacity .2s ease}
+.nav-boton[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-boton[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-boton[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:960px){
+  .nav-boton{display:flex}
+  .nav-enlaces{
+    position:fixed;top:var(--nav);left:0;right:0;
+    flex-direction:column;gap:0;
+    background:var(--papel);border-bottom:var(--regla);
+    padding:8px var(--pad) 20px;display:none;
+  }
+  .nav-enlaces.abierto{display:flex}
+  .nav-enlaces a{padding:16px 0;border-bottom:var(--regla);opacity:1;font-size:12px}
+  .nav-enlaces a:last-child{border-bottom:none}
+}
+@media(max-width:520px){
+  .boton-nav{padding:11px 14px;font-size:10px;letter-spacing:0.08em}
 }
 
 /* ---------- Botón ---------- */
@@ -112,29 +146,23 @@ p+p{margin-top:1.05em}
   padding:19px 44px;border:none;cursor:pointer;transition:opacity .18s ease;
 }
 .boton:hover{opacity:.86}
-.boton:focus-visible{outline:3px solid var(--senal);outline-offset:3px}
+.boton:focus-visible,.boton-nav:focus-visible,.moneda button:focus-visible,summary:focus-visible{outline:3px solid var(--senal);outline-offset:3px}
 
 /* ---------- Estructura de manual ---------- */
 .seccion{border-bottom:var(--regla)}
 .encabezado{
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;
   padding:13px var(--pad);border-bottom:var(--regla);
 }
-.encabezado span:nth-child(2){text-align:center}
-.encabezado span:nth-child(3){text-align:right}
+.encabezado span:nth-child(2){text-align:right}
 .cuerpo{max-width:var(--max);margin:0 auto;padding:clamp(56px,8vw,110px) var(--pad)}
 .oscuro{background:var(--tinta);color:var(--papel);border-bottom-color:rgba(239,239,239,.3)}
 .oscuro .encabezado{border-bottom-color:rgba(239,239,239,.3)}
 
-/* ---------- Tratamiento fotográfico ----------
-   Unifica fotos de distinto origen bajo una misma atmósfera.
-   Para ver una foto en color original: agregar la clase "natural". */
+/* ---------- Tratamiento fotográfico ---------- */
 .foto{position:relative;overflow:hidden;background:var(--tinta)}
 .foto img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06) brightness(.97)}
-.foto::after{
-  content:'';position:absolute;inset:0;background:var(--protocolo);
-  mix-blend-mode:multiply;opacity:.55;pointer-events:none;
-}
+.foto::after{content:'';position:absolute;inset:0;background:var(--protocolo);mix-blend-mode:multiply;opacity:.55;pointer-events:none}
 .foto.verde::after{background:var(--sereno)}
 .foto.natural img{filter:none}
 .foto.natural::after{display:none}
@@ -142,11 +170,76 @@ p+p{margin-top:1.05em}
 /* ---------- Portada ---------- */
 .portada{position:relative;min-height:calc(100vh - var(--nav));display:flex;flex-direction:column;justify-content:flex-end;border-bottom:var(--regla)}
 .portada .foto{position:absolute;inset:0}
-.portada .foto::after{background:var(--tinta);mix-blend-mode:normal;opacity:.64}
-.portada .contenido{position:relative;z-index:2;color:var(--papel);width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad) clamp(48px,7vh,88px)}
+.portada .foto::after{background:var(--tinta);mix-blend-mode:normal;opacity:.66}
+.portada .contenido{position:relative;z-index:2;color:var(--papel);width:100%;max-width:var(--max);margin:0 auto;padding:clamp(48px,8vh,96px) var(--pad) clamp(40px,6vh,72px)}
 .portada h1{margin-bottom:24px}
 .portada .intro{opacity:.88;margin-bottom:38px}
-.rubrica{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(40px,6vh,72px);padding-top:14px;border-top:1px solid rgba(239,239,239,.3);opacity:.6}
+
+/* Franja de datos */
+.datos{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(40px,7vh,80px);border-top:var(--regla-clara)}
+@media(min-width:900px){.datos{grid-template-columns:repeat(4,1fr)}}
+.dato{padding:18px 18px 4px 0}
+.dato+.dato{padding-left:18px;border-left:var(--regla-clara)}
+@media(max-width:899px){
+  .dato:nth-child(3){padding-left:0;border-left:none}
+  .dato:nth-child(n+3){border-top:var(--regla-clara)}
+}
+.dato strong{display:block;font-variation-settings:'wdth' 125,'wght' 500;font-weight:normal;text-transform:uppercase;font-size:clamp(22px,2.6vw,32px);line-height:1.05;margin-bottom:6px}
+.dato span{font-size:13px;opacity:.7;display:block;max-width:24ch}
+
+/* ---------- 01 · Problema: flujo ---------- */
+.flujo{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
+@media(min-width:900px){.flujo{grid-template-columns:repeat(4,1fr)}}
+.flujo li{background:var(--blanco);padding:26px 24px 30px;position:relative}
+.flujo li:last-child{background:var(--tinta);color:var(--papel)}
+.flujo .n{font-variation-settings:'wdth' 125,'wght' 500;font-size:13px;opacity:.45;display:block;margin-bottom:14px}
+.flujo strong{font-variation-settings:'wdth' 112,'wght' 500;font-weight:normal;text-transform:uppercase;font-size:18px;line-height:1.15;display:block}
+.flujo li:not(:last-child)::after{
+  content:'';position:absolute;z-index:2;background:var(--papel);border:var(--regla);
+  width:14px;height:14px;transform:rotate(45deg);
+  left:24px;bottom:-8px;border-top:none;border-left:none;
+}
+@media(min-width:900px){
+  .flujo li:not(:last-child)::after{left:auto;right:-8px;bottom:auto;top:50%;margin-top:-7px;border:var(--regla);border-left:none;border-bottom:none}
+}
+.remate{margin-top:40px;padding-top:24px;border-top:var(--regla);font-variation-settings:'wdth' 112,'wght' 500;font-size:clamp(18px,2.1vw,25px);line-height:1.3;max-width:40ch}
+
+/* ---------- 02 · Cómo funciona: cinco pasos ---------- */
+.pasos{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
+@media(min-width:700px){.pasos{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1150px){.pasos{grid-template-columns:repeat(5,1fr)}}
+.paso5{background:var(--papel);padding:26px 22px;display:flex;flex-direction:column}
+.paso5 .num{font-variation-settings:'wdth' 125,'wght' 500;font-size:13px;opacity:.45;margin-bottom:12px}
+.paso5 h3{font-size:20px;margin-bottom:14px}
+.equivale{background:var(--sereno-claro);padding:12px 14px;margin-bottom:16px}
+.equivale small{display:block;font-size:12px;opacity:.7;margin-bottom:2px}
+.equivale b{font-variation-settings:'wdth' 100,'wght' 600;font-weight:normal;font-size:15px;line-height:1.3}
+.paso5 p{font-size:15px;flex:1}
+.responsable{margin-top:22px;padding:9px 12px;font-variation-settings:'wdth' 100,'wght' 600;text-transform:uppercase;letter-spacing:0.12em;font-size:10px}
+.responsable.mediteca{background:var(--sereno);color:var(--tinta)}
+.responsable.asistente{background:var(--tinta);color:var(--papel)}
+
+/* ---------- 03 · Quién hace qué ---------- */
+.reparto{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
+@media(min-width:900px){.reparto{grid-template-columns:3fr 2fr}}
+.reparto>div{padding:clamp(28px,4vw,52px)}
+.reparto .nuestro{background:var(--tinta);color:var(--papel)}
+.reparto .tuyo{background:var(--blanco)}
+.reparto h3{font-size:18px;margin-bottom:20px}
+.reparto .nuestro h3{color:var(--sereno)}
+.reparto li{padding:12px 0;border-top:1px solid currentColor;border-top-color:rgba(38,44,58,.18);font-size:16px}
+.reparto .nuestro li{border-top-color:rgba(239,239,239,.18)}
+.nota-final{margin-top:28px;font-size:15px;opacity:.75}
+
+/* ---------- 04 · Tres números ---------- */
+.numeros{display:grid;gap:1px;background:rgba(239,239,239,.25);border:1px solid rgba(239,239,239,.25);margin-top:44px}
+@media(min-width:900px){.numeros{grid-template-columns:repeat(3,1fr)}}
+.numero{background:var(--tinta);padding:30px}
+.numero .n{font-variation-settings:'wdth' 125,'wght' 500;font-size:40px;line-height:1;display:block;margin-bottom:18px;color:var(--protocolo)}
+.numero:last-child{background:var(--papel);color:var(--tinta)}
+.numero:last-child .n{color:var(--tinta)}
+.numero h3{font-size:17px}
+.numero p{font-size:15px;opacity:.8}
 
 /* ---------- Bloque partido ---------- */
 .partido{display:grid;border:var(--regla);background:var(--tinta)}
@@ -155,48 +248,81 @@ p+p{margin-top:1.05em}
 .partido>.foto{min-height:340px}
 @media(min-width:900px){.partido.invertido>.texto{order:2}}
 
-/* ---------- Indicadores ---------- */
-.capacidades{display:grid;gap:1px;background:rgba(239,239,239,.25);border:1px solid rgba(239,239,239,.25);margin-top:48px}
-@media(min-width:900px){.capacidades{grid-template-columns:repeat(3,1fr)}}
-.capacidad{background:var(--tinta);padding:30px}
-.capacidad .etiqueta{opacity:.45;display:block;margin-bottom:16px}
-.capacidad p{font-size:15px;opacity:.8}
+/* ---------- Cita ---------- */
+.cita{background:var(--blanco);border:var(--regla);border-top:none;padding:clamp(28px,4vw,48px)}
+.cita blockquote{font-variation-settings:'wdth' 112,'wght' 400;font-size:clamp(17px,2vw,23px);line-height:1.4}
+.cita footer{margin-top:24px;padding-top:16px;border-top:var(--regla)}
+.verificar{margin-top:28px;padding-top:20px;border-top:var(--regla)}
+.verificar .etiqueta{display:block;opacity:.5;margin-bottom:14px}
+.verificar-enlaces{display:flex;flex-wrap:wrap;gap:20px}
+.verificar-enlaces a{color:inherit;text-decoration:none;font-size:14px;border-bottom:1px solid currentColor;padding-bottom:2px;opacity:.8;transition:opacity .18s ease}
+.verificar-enlaces a:hover{opacity:1}
 
-/* ---------- Módulos con pestañas ---------- */
-.pestanas{display:flex;flex-wrap:wrap;gap:1px;background:var(--tinta);border:var(--regla);border-bottom:none;margin-top:48px}
-.pestana{
-  flex:1 1 110px;background:var(--papel);border:none;cursor:pointer;
-  font-family:inherit;color:var(--tinta);
-  font-variation-settings:'wdth' 100,'wght' 500;
-  text-transform:uppercase;letter-spacing:0.14em;font-size:11px;
-  padding:18px 8px;transition:background .18s ease,color .18s ease;
+/* ---------- 06 · Inversión ---------- */
+.cabeza-inversion{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.moneda{display:inline-flex;border:var(--regla);background:var(--blanco)}
+.moneda button{
+  font-family:inherit;border:none;background:transparent;color:var(--tinta);cursor:pointer;
+  font-variation-settings:'wdth' 100,'wght' 600;text-transform:uppercase;letter-spacing:0.14em;font-size:12px;
+  padding:13px 22px;min-width:88px;
 }
-.pestana[aria-selected="true"]{background:var(--tinta);color:var(--papel)}
-.panel{display:none;border:var(--regla)}
-.panel.activo{display:grid}
-@media(min-width:900px){.panel.activo{grid-template-columns:1fr 1fr}}
-.panel .texto{padding:clamp(30px,4.4vw,64px);display:flex;flex-direction:column;justify-content:center}
-.panel .texto h2{font-size:clamp(22px,3vw,36px);max-width:22ch;margin-bottom:18px}
-.panel .foto{min-height:320px}
-.indice{font-variation-settings:'wdth' 125,'wght' 500;font-size:34px;opacity:.22;line-height:1;margin-bottom:16px}
+.moneda button+button{border-left:var(--regla)}
+.moneda button[aria-pressed="true"]{background:var(--tinta);color:var(--papel)}
+.moneda-ayuda{display:block;font-size:12px;opacity:.6;margin-top:8px}
 
-/* ---------- Enfoque ---------- */
-.enfoque{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;list-style:none;margin:36px auto 0;max-width:900px}
-.enfoque li{border:var(--regla);padding:12px 22px;font-size:13px;text-transform:uppercase;letter-spacing:0.1em;font-variation-settings:'wdth' 100,'wght' 500}
+.planes{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:36px}
+@media(min-width:960px){.planes{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--blanco);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column}
+.plan .cuando{opacity:.55;display:block;margin-bottom:10px}
+.plan h3{font-size:22px;margin-bottom:22px}
+.precio{padding:18px 0 20px;border-top:var(--regla);border-bottom:var(--regla);margin-bottom:22px}
+.precio .monto{display:block;font-variation-settings:'wdth' 125,'wght' 500;font-size:clamp(34px,4vw,46px);line-height:1}
+.precio .forma{display:block;font-size:13px;opacity:.65;margin-top:8px}
+.plan .incluye-titulo{opacity:.55;display:block;margin-bottom:6px}
+.plan li{padding:10px 0;border-bottom:1px solid rgba(38,44,58,.14);font-size:15px;line-height:1.4}
+.plan li:last-child{border-bottom:none}
+.plan.destacado-plan{background:var(--tinta);color:var(--papel)}
+.plan.destacado-plan .precio{border-color:rgba(239,239,239,.35)}
+.plan.destacado-plan li{border-bottom-color:rgba(239,239,239,.16)}
+
+.no-incluye{background:var(--papel);border:var(--regla);border-top:none;padding:18px clamp(26px,3vw,38px);font-size:14px}
+
+.pagos-titulo{margin-top:64px}
+.pagos{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:24px}
+@media(min-width:900px){.pagos{grid-template-columns:repeat(3,1fr)}}
+.pago{background:var(--papel);padding:24px;display:flex;flex-direction:column}
+.pago h3{font-size:16px}
+.pago p{font-size:15px;flex:1}
+.a-quien{margin-top:18px;padding:9px 12px;background:var(--sereno-claro);font-variation-settings:'wdth' 100,'wght' 600;font-size:13px}
+.pago.externo .a-quien{background:var(--blanco);border:var(--regla)}
+
+.ancla{text-align:center;margin-top:56px}
+.ancla .intro{margin-inline:auto}
+.ancla p:not(.intro){max-width:46ch;margin:12px auto 0;opacity:.7}
+
+/* ---------- 08 · Preguntas ---------- */
+.preguntas{border-top:var(--regla);margin-top:40px;max-width:960px}
+.preguntas details{border-bottom:var(--regla)}
+.preguntas summary{
+  list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
+  font-variation-settings:'wdth' 112,'wght' 500;font-size:clamp(16px,1.8vw,19px);line-height:1.3;
+}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary::after{
+  content:'';position:absolute;right:6px;top:50%;width:12px;height:12px;margin-top:-8px;
+  border-right:1.5px solid var(--tinta);border-bottom:1.5px solid var(--tinta);transform:rotate(45deg);transition:transform .2s ease;
+}
+.preguntas details[open] summary::after{transform:rotate(225deg);margin-top:-2px}
+.preguntas .respuesta{padding:0 0 24px;max-width:64ch;font-size:16px;opacity:.85}
 
 /* ---------- Proceso ---------- */
-.proceso{border-top:var(--regla);margin-top:48px}
+.proceso{border-top:var(--regla);margin-top:44px}
 .paso{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:26px 0;border-bottom:var(--regla);align-items:start}
 @media(min-width:820px){.paso{grid-template-columns:80px 240px 1fr;gap:40px}}
 .paso .num{font-variation-settings:'wdth' 125,'wght' 500;font-size:26px;line-height:1;opacity:.3}
 .paso h3{margin-bottom:0}
 .paso p{font-size:15px;grid-column:2/-1}
 @media(min-width:820px){.paso p{grid-column:3}}
-
-/* ---------- Cita ---------- */
-.cita{background:var(--blanco);border:var(--regla);border-top:none;padding:clamp(28px,4vw,48px)}
-.cita blockquote{font-variation-settings:'wdth' 112,'wght' 400;font-size:clamp(17px,2vw,23px);line-height:1.4}
-.cita footer{margin-top:24px;padding-top:16px;border-top:var(--regla)}
 
 /* ---------- Ficha de admisión ---------- */
 .admision{background:var(--blanco);border:var(--regla);max-width:720px;margin:0 auto;text-align:left;color:var(--tinta)}
@@ -226,7 +352,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   position:fixed;bottom:0;left:0;right:0;z-index:60;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:12px var(--pad);background:var(--tinta);color:var(--papel);
-  border-top:1px solid rgba(239,239,239,.28);
+  border-top:var(--regla-clara);
   transform:translateY(100%);transition:transform .3s ease;
 }
 .barra-fija.visible{transform:none}
@@ -241,110 +367,12 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 .pie a{color:inherit;text-decoration:none;opacity:.75;font-size:14px;display:block;padding:4px 0}
 .pie a:hover{opacity:1}
 .pie h3{opacity:.5;margin-bottom:12px}
-.pie-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:18px var(--pad);border-top:1px solid rgba(239,239,239,.28);opacity:.55}
+.pie-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:18px var(--pad);border-top:var(--regla-clara);opacity:.55}
 
-/* ---------- Aparición ---------- */
-.revela{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-.revela.dentro{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
-  .revela{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
-  .barra-fija{transition:none}
+  .barra-fija,.preguntas summary::after{transition:none}
 }
-
-   /* ---------- Inversión ---------- */
-.destacado{
-  border:var(--regla);background:var(--tinta);color:var(--papel);
-  padding:22px 28px;margin-top:40px;
-  font-variation-settings:'wdth' 112,'wght' 500;
-  font-size:clamp(15px,1.7vw,19px);
-}
-.tabla-envoltura{overflow-x:auto;margin-top:40px;border:var(--regla)}
-.tabla-inversion{width:100%;border-collapse:collapse;min-width:680px;background:var(--blanco)}
-.tabla-inversion th,.tabla-inversion td{
-  padding:14px 18px;text-align:center;border-bottom:var(--regla);font-size:14px;
-}
-.tabla-inversion thead th{background:var(--papel);vertical-align:bottom;padding-top:22px}
-.tabla-inversion th:first-child,.tabla-inversion td:first-child{
-  text-align:left;width:34%;
-  position:sticky;left:0;background:var(--blanco);
-  border-right:var(--regla);
-}
-.tabla-inversion thead th:first-child{background:var(--papel)}
-.fase{
-  display:block;font-variation-settings:'wdth' 125,'wght' 500;
-  text-transform:uppercase;font-size:14px;letter-spacing:0.02em;
-}
-.cuando{
-  display:block;margin-top:6px;opacity:.5;
-  text-transform:uppercase;letter-spacing:0.14em;font-size:10px;
-}
-.fila-dato td{background:var(--papel);font-variation-settings:'wdth' 100,'wght' 500}
-.fila-dato td:first-child{background:var(--papel)}
-.fila-inversion td{
-  background:var(--tinta);color:var(--papel);border-bottom:none;
-  font-variation-settings:'wdth' 125,'wght' 500;
-  text-transform:uppercase;font-size:clamp(18px,2.4vw,26px);padding:26px 18px;
-}
-.fila-inversion td:first-child{
-  background:var(--tinta);font-size:11px;letter-spacing:0.18em;
-  font-variation-settings:'wdth' 100,'wght' 500;
-}
-.detalle-precio{
-  display:block;margin-top:6px;opacity:.55;
-  font-variation-settings:'wdth' 100,'wght' 400;
-  text-transform:none;letter-spacing:0;font-size:12px;
-}
-.ancla{text-align:center;margin-top:48px}
-.ancla .intro{margin-inline:auto}
-.ancla p:not(.intro){max-width:46ch;margin:12px auto 0;opacity:.7}
-   
-/* ---------- Menú ---------- */
-.nav-logo{text-decoration:none;color:inherit;display:flex;align-items:center;flex-shrink:0}
-.nav-derecha{display:flex;align-items:center;gap:14px}
-.nav-enlaces{display:flex;gap:26px}
-.nav-enlaces a{
-  color:inherit;text-decoration:none;
-  font-variation-settings:'wdth' 100,'wght' 500;
-  text-transform:uppercase;letter-spacing:0.14em;font-size:11px;
-  opacity:.65;transition:opacity .18s ease;
-}
-.nav-enlaces a:hover{opacity:1}
-.nav-boton{display:none;background:none;border:var(--regla);width:40px;height:36px;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0}
-.nav-boton span{display:block;width:16px;height:1.5px;background:var(--tinta);transition:transform .2s ease,opacity .2s ease}
-.nav-boton[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.nav-boton[aria-expanded="true"] span:nth-child(2){opacity:0}
-.nav-boton[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-@media(max-width:900px){
-  .nav-boton{display:flex}
-  .nav-enlaces{
-    position:fixed;top:var(--nav);left:0;right:0;
-    flex-direction:column;gap:0;
-    background:var(--papel);border-bottom:var(--regla);
-    padding:8px var(--pad) 20px;
-    display:none;
-  }
-  .nav-enlaces.abierto{display:flex}
-  .nav-enlaces a{padding:16px 0;border-bottom:var(--regla);opacity:1;font-size:12px}
-  .nav-enlaces a:last-child{border-bottom:none}
-}
-@media(max-width:520px){
-  .boton-nav{padding:11px 14px;font-size:10px;letter-spacing:0.08em}
-}
-
-/* ---------- Pie: bloque de cliente ---------- */
-/* ---------- Verificación de caso ---------- */
-.verificar{margin-top:28px;padding-top:20px;border-top:var(--regla)}
-.verificar .etiqueta{display:block;opacity:.5;margin-bottom:14px}
-.verificar-enlaces{display:flex;flex-wrap:wrap;gap:20px}
-.verificar-enlaces a{
-  color:inherit;text-decoration:none;font-size:14px;
-  border-bottom:1px solid currentColor;padding-bottom:2px;
-  opacity:.8;transition:opacity .18s ease;
-}
-.verificar-enlaces a:hover{opacity:1}
-   
 </style>
 </head>
 <body>
@@ -354,16 +382,16 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   <a href="#top" class="nav-logo"><img src="/img/logo.svg" alt="Mediteca"></a>
 
   <div class="nav-enlaces" id="navEnlaces">
-    <a href="#s01">Situación</a>
-    <a href="#s02">Sistema</a>
-    <a href="#s05">Nosotros</a>
-    <a href="#s06">Casos</a>
-    <a href="#s08">Inversión</a>
+    <a href="#s01">Problema</a>
+    <a href="#s02">Cómo funciona</a>
+    <a href="#s05">Caso</a>
+    <a href="#s06">Inversión</a>
+    <a href="#s08">Preguntas</a>
   </div>
 
   <div class="nav-derecha">
     <a href="#admision" class="boton-nav">Agendar llamada</a>
-    <button class="nav-boton" id="navBoton" aria-label="Menú" aria-expanded="false">
+    <button class="nav-boton" id="navBoton" aria-label="Menú" aria-expanded="false" aria-controls="navEnlaces">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -374,150 +402,144 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   <div class="foto"><img src="/img/portada.jpg" alt=""></div>
   <div class="contenido">
     <h1>Tu agenda llena de pacientes que sí llegan</h1>
-    <p class="intro">Instalamos el sistema completo que convierte a quien busca un especialista en una cita confirmada en tu calendario.</p>
+    <p class="intro">Instalamos tu página web, tus anuncios en Facebook e Instagram y tu WhatsApp empresarial para que quien busca un especialista termine sentado en tu consulta.</p>
     <a href="#admision" class="boton">Agendar una llamada</a>
-    <div class="rubrica etiqueta">
-      <span>Mediteca</span><span>Adquisición de pacientes</span><span>Guatemala</span>
+
+    <div class="datos">
+      <div class="dato"><strong>8 años</strong><span>conectando pacientes con médicos especialistas</span></div>
+      <div class="dato"><strong>$5 – $10</strong><span>costo promedio por paciente</span></div>
+      <div class="dato"><strong>+100</strong><span>pacientes agendados en los primeros 6 meses</span></div>
+      <div class="dato"><strong>GT · SV</strong><span>Guatemala y El Salvador</span></div>
     </div>
   </div>
 </header>
 
-<!-- ================= 01 · SITUACIÓN ================= -->
-<section class="seccion revela" id="s01">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Situación</span><span>01</span></div>
+<!-- ================= 01 · PROBLEMA ================= -->
+<section class="seccion" id="s01">
+  <div class="encabezado etiqueta"><span>Problema</span><span>01</span></div>
   <div class="cuerpo">
-    <div class="partido">
-      <div class="texto">
-        <h2>Hay pacientes buscándote ahora mismo</h2>
-        <p class="intro">Cada día, decenas de personas en tu ciudad buscan un especialista con tu misma formación.</p>
-        <p>La mayoría se pierde en el camino: escriben, preguntan, dudan, y la conversación se apaga antes de que alguien proponga una fecha.</p>
-        <p><strong>Lo que multiplica los resultados es el sistema que ordena lo que pasa después del clic.</strong></p>
+    <h2>Publicar no es lo mismo que anunciar</h2>
+    <p class="intro">Es lo más común cuando se pauta sin dirección: el WhatsApp se llena de preguntas y tu asistente pierde tiempo con personas que nunca iban a venir.</p>
+
+    <ol class="flujo">
+      <li><span class="n">01</span><strong>Anuncio a cualquier persona</strong></li>
+      <li><span class="n">02</span><strong>Muchos mensajes</strong></li>
+      <li><span class="n">03</span><strong>Pocos pacientes</strong></li>
+      <li><span class="n">04</span><strong>No se sabe qué funcionó</strong></li>
+    </ol>
+
+    <p class="remate">Mediteca decide a quién se le muestra cada anuncio y mide cuáles traen pacientes.</p>
+  </div>
+</section>
+
+<!-- ================= 02 · CÓMO FUNCIONA ================= -->
+<section class="seccion" id="s02">
+  <div class="encabezado etiqueta"><span>Cómo funciona</span><span>02</span></div>
+  <div class="cuerpo">
+    <h2>Cinco pasos, igual que en tu consultorio</h2>
+    <p class="intro">Cada paso tiene un equivalente que ya conoces. Nosotros nos encargamos de tres; tu asistente sigue haciendo lo que ya hace.</p>
+
+    <div class="pasos">
+      <div class="paso5">
+        <span class="num">01</span>
+        <h3>Atraer</h3>
+        <div class="equivale"><small>En tu clínica es</small><b>Una referencia</b></div>
+        <p>Tus fotos y videos aparecen en Facebook e Instagram.</p>
+        <span class="responsable mediteca">Mediteca</span>
       </div>
-      <div class="foto"><img src="/img/situacion.jpg" alt=""></div>
+      <div class="paso5">
+        <span class="num">02</span>
+        <h3>Dirigir</h3>
+        <div class="equivale"><small>En tu clínica es</small><b>El colega que solo refiere lo que tú tratas</b></div>
+        <p>Los anuncios se muestran solo a personas de tu zona, edad y perfil.</p>
+        <span class="responsable mediteca">Mediteca</span>
+      </div>
+      <div class="paso5">
+        <span class="num">03</span>
+        <h3>Atender</h3>
+        <div class="equivale"><small>En tu clínica es</small><b>Tu recepción</b></div>
+        <p>Todos los mensajes llegan al WhatsApp de tu asistente, que resuelve las dudas.</p>
+        <span class="responsable asistente">Tu asistente</span>
+      </div>
+      <div class="paso5">
+        <span class="num">04</span>
+        <h3>Agendar</h3>
+        <div class="equivale"><small>En tu clínica es</small><b>Tu libreta de citas</b></div>
+        <p>Tu asistente agenda y confirma la cita, como lo hace hoy.</p>
+        <span class="responsable asistente">Tu asistente</span>
+      </div>
+      <div class="paso5">
+        <span class="num">05</span>
+        <h3>Medir</h3>
+        <div class="equivale"><small>En tu clínica es</small><b>El expediente</b></div>
+        <p>Cada mes sabemos qué anuncio trajo a qué paciente y cuántos llegaron.</p>
+        <span class="responsable mediteca">Mediteca</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 02 · SISTEMA ================= -->
-<section class="seccion revela" id="s02">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Sistema</span><span>02</span></div>
+<!-- ================= 03 · QUIÉN HACE QUÉ ================= -->
+<section class="seccion" id="s03">
+  <div class="encabezado etiqueta"><span>Quién hace qué</span><span>03</span></div>
   <div class="cuerpo">
-    <h2>Cinco módulos, instalados una sola vez</h2>
-    <p class="intro">Cada uno resuelve un punto donde hoy se pierden pacientes. Juntos convierten el interés en una cita confirmada.</p>
+    <h2>Tú atiendes. Nosotros hacemos el resto.</h2>
 
-    <div class="pestanas" role="tablist">
-      <button class="pestana" role="tab" aria-selected="true"  data-panel="p1">Atraer</button>
-      <button class="pestana" role="tab" aria-selected="false" data-panel="p2">Filtrar</button>
-      <button class="pestana" role="tab" aria-selected="false" data-panel="p3">Agendar</button>
-      <button class="pestana" role="tab" aria-selected="false" data-panel="p4">Confirmar</button>
-      <button class="pestana" role="tab" aria-selected="false" data-panel="p5">Medir</button>
-    </div>
-
-    <div class="panel activo" id="p1" role="tabpanel">
-      <div class="texto">
-        <span class="indice">01</span>
-        <h2>Campañas que llegan a quien te necesita</h2>
-        <p>Anuncios en Meta y Google dirigidos a personas con el síntoma, la zona y el perfil que corresponden a tu consulta.</p>
+    <div class="reparto">
+      <div class="nuestro">
+        <h3>Mediteca</h3>
+        <ul>
+          <li>Crea y maneja los anuncios</li>
+          <li>Decide a quién se le muestran</li>
+          <li>Conecta los anuncios con tu WhatsApp</li>
+          <li>Mide qué anuncio trae pacientes</li>
+          <li>Te entrega un informe cada mes</li>
+        </ul>
       </div>
-      <div class="foto"><img src="/img/modulo-atraer.jpg" alt=""></div>
-    </div>
-
-    <div class="panel" id="p2" role="tabpanel">
-      <div class="texto">
-        <span class="indice">02</span>
-        <h2>Un formulario que separa al paciente real</h2>
-        <p>Antes de llegar a tu WhatsApp, el paciente responde qué le pasa, desde cuándo y si ya tiene estudios. Vos ves solo los casos que corresponden a tu especialidad.</p>
+      <div class="tuyo">
+        <h3>Tú y tu asistente</h3>
+        <ul>
+          <li>Responden dudas por WhatsApp</li>
+          <li>Agendan y confirman citas</li>
+          <li>Atienden la consulta</li>
+          <li>Anotan si el paciente llegó</li>
+        </ul>
       </div>
-      <div class="foto"><img src="/img/modulo-filtrar.jpg" alt=""></div>
     </div>
-
-    <div class="panel" id="p3" role="tabpanel">
-      <div class="texto">
-        <span class="indice">03</span>
-        <h2>La cita se agenda sola</h2>
-        <p>El paciente calificado elige día y hora en tu calendario real. Sin ida y vuelta de mensajes, sin horarios que ya no están disponibles.</p>
-      </div>
-      <div class="foto"><img src="/img/modulo-agendar.jpg" alt=""></div>
-    </div>
-
-    <div class="panel" id="p4" role="tabpanel">
-      <div class="texto">
-        <span class="indice">04</span>
-        <h2>Recordatorios que reducen el ausentismo</h2>
-        <p>Confirmación inmediata, recordatorio el día anterior y otro dos horas antes. Si alguien no llega, el sistema lo recupera automáticamente.</p>
-      </div>
-      <div class="foto"><img src="/img/modulo-confirmar.jpg" alt=""></div>
-    </div>
-
-    <div class="panel" id="p5" role="tabpanel">
-      <div class="texto">
-        <span class="indice">05</span>
-        <h2>Cada quetzal rastreado hasta la consulta</h2>
-        <p>Sabés qué anuncio trajo a qué paciente, cuántos agendaron y cuántos asistieron. Con ese número, decidir cuánto invertir deja de ser una apuesta.</p>
-      </div>
-      <div class="foto"><img src="/img/modulo-medir.jpg" alt=""></div>
-    </div>
+    <p class="nota-final">Nunca tienes que entrar a Facebook a manejar anuncios.</p>
   </div>
 </section>
 
-<!-- ================= 03 · OPERACIÓN ================= -->
-<section class="seccion oscuro revela" id="s03">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Operación</span><span>03</span></div>
+<!-- ================= 04 · CADA MES ================= -->
+<section class="seccion oscuro" id="s04">
+  <div class="encabezado etiqueta"><span>Cada mes</span><span>04</span></div>
   <div class="cuerpo">
-    <h2>Cada mes sabés qué pasó con tu inversión</h2>
-    <p class="intro" style="opacity:.85">Campañas activas, creativos nuevos y un reporte que se lee en dos minutos.</p>
-    <div class="capacidades">
-      <div class="capacidad">
-        <span class="etiqueta">Indicador 01</span>
+    <h2>Recibes tres números</h2>
+    <p class="intro" style="opacity:.85">Con esos tres números decidimos juntos cuánto invertir el mes siguiente. Por eso tu asistente anota cada día quién agendó y quién llegó.</p>
+
+    <div class="numeros">
+      <div class="numero">
+        <span class="n">01</span>
         <h3>Citas agendadas</h3>
-        <p>Cuántas personas reservaron un espacio en tu calendario este mes.</p>
+        <p>Cuántas personas reservaron una cita en el mes.</p>
       </div>
-      <div class="capacidad">
-        <span class="etiqueta">Indicador 02</span>
-        <h3>Tasa de asistencia</h3>
-        <p>Cuántas de esas citas se convirtieron en un paciente sentado frente a vos.</p>
+      <div class="numero">
+        <span class="n">02</span>
+        <h3>Pacientes que llegaron</h3>
+        <p>De esas citas, cuántas se convirtieron en consulta.</p>
       </div>
-      <div class="capacidad">
-        <span class="etiqueta">Indicador 03</span>
-        <h3>Costo por paciente</h3>
-        <p>El número que ordena todo lo demás y define cuánto invertir el mes siguiente.</p>
+      <div class="numero">
+        <span class="n">03</span>
+        <h3>Costo por paciente nuevo</h3>
+        <p>Lo invertido en anuncios dividido entre los pacientes que llegaron.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 04 · ENFOQUE ================= -->
-<section class="seccion revela" id="s04">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Enfoque</span><span>04</span></div>
-  <div class="cuerpo" style="text-align:center">
-    <h2 style="margin-inline:auto">Todo el presupuesto va a una sola cosa</h2>
-    <p class="intro" style="margin-inline:auto">Somos una agencia especializada. Cada quetzal, cada hora y cada decisión apuntan a llenar tu agenda.</p>
-    <ul class="enfoque">
-      <li>Atraer</li><li>Filtrar</li><li>Agendar</li><li>Confirmar</li><li>Medir</li>
-    </ul>
-    <p style="margin-top:36px;max-width:56ch;margin-inline:auto">Nuestra misión es que tu clínica tenga pacientes, nos enfocamos en la captación de usuarios en internet que necesiten de tu apoyo como médico.</p>
-  </div>
-</section>
-
-<!-- ================= 05 · ANTECEDENTES ================= -->
-<section class="seccion revela" id="s05">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Antecedentes</span><span>05</span></div>
-  <div class="cuerpo">
-    <div class="partido invertido">
-      <div class="texto">
-        <h2>Ocho años conectando pacientes con médicos especialistas</h2>
-        <p class="intro">Hemos creado campañas para clínicas especializadas en Estados Unidos: medicina integrativa, restauración capilar, tratamiento vascular.</p>
-        <p>Somos expertos en entender al médico y comunicar su valor a los pacientes que lo necesitan y lo más importante, a los pacientes que están dispuestos a pagarlo.</p>
-        <p><strong>Conocemos la dinámica clínica. Sabemos qué pasa entre el clic y la sala de espera.</strong></p>
-      </div>
-      <div class="foto"><img src="/img/antecedentes.jpg" alt=""></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 06 · EXPEDIENTE ================= -->
-<section class="seccion revela" id="s06">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Expediente</span><span>06</span></div>
+<!-- ================= 05 · CASO ================= -->
+<section class="seccion" id="s05">
+  <div class="encabezado etiqueta"><span>Caso real</span><span>05</span></div>
   <div class="cuerpo">
     <div class="partido">
       <div class="foto natural"><img src="/img/caso-castillo.jpg" alt="Dr. Carlos Castillo Amaya"></div>
@@ -527,8 +549,8 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <p class="intro" style="margin-bottom:18px">Traumatología y Ortopedia · Zona 10, Ciudad de Guatemala</p>
         <p>Más de un año de campaña continua. Pacientes llegando a consulta y reconociendo al doctor por sus anuncios.</p>
         <p>Esa campaña nos enseñó algo que hoy aplicamos desde el primer día: el momento decisivo no es el clic, es lo que pasa en los siguientes diez minutos.</p>
-                 <div class="verificar">
-          <span class="etiqueta">Verificá el resultado</span>
+        <div class="verificar">
+          <span class="etiqueta">Verifica el resultado</span>
           <div class="verificar-enlaces">
             <a href="https://www.drcastilloamaya.com/" target="_blank" rel="noopener">Sitio web</a>
             <a href="https://www.instagram.com/drcastilloamaya/" target="_blank" rel="noopener">Instagram</a>
@@ -544,62 +566,94 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
   </div>
 </section>
 
-<!-- ================= 07 · PROCEDIMIENTO ================= -->
-<section class="seccion revela" id="s07">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Procedimiento</span><span>07</span></div>
+<!-- ================= 06 · INVERSIÓN ================= -->
+<section class="seccion" id="s06">
+  <div class="encabezado etiqueta"><span>Inversión</span><span>06</span></div>
   <div class="cuerpo">
-    <h2>Cómo funciona</h2>
-    <div class="proceso">
-      <div class="paso"><span class="num">01</span><h3>Llamada</h3><p>Treinta minutos. Tu especialidad, tu consultorio, tus objetivos. Salís de ahí con un plan claro, trabajemos juntos o no.</p></div>
-      <div class="paso"><span class="num">02</span><h3>Instalación</h3><p>Construimos el sistema completo. Tu solo grabas una sesión de contenido con guión listo.</p></div>
-      <div class="paso"><span class="num">03</span><h3>Lanzamiento</h3><p>Encendemos las campañas con todo medido desde el primer día.</p></div>
-      <div class="paso"><span class="num">04</span><h3>Operación</h3><p>Optimizamos mes a mes. Reporte mensual con los tres indicadores que importan.</p></div>
+    <div class="cabeza-inversion">
+      <div>
+        <h2 style="margin-bottom:18px">Qué incluye y cuánto cuesta</h2>
+        <p class="intro">Un solo servicio con tres momentos de cobro. Sin planes, sin niveles, sin letra chica.</p>
+      </div>
+      <div>
+        <div class="moneda" role="group" aria-label="Moneda">
+          <button type="button" data-moneda="gtq" aria-pressed="true">GTQ</button>
+          <button type="button" data-moneda="usd" aria-pressed="false">USD</button>
+        </div>
+        <span class="moneda-ayuda">Quetzales (Guatemala) o dólares (El Salvador)</span>
+      </div>
     </div>
-  </div>
-</section>
-<!-- ================= 08 · INVERSIÓN ================= -->
-<section class="seccion revela" id="s08">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Inversión</span><span>08</span></div>
-  <div class="cuerpo">
-    <h2>Qué incluye y cuánto cuesta</h2>
-    <p class="intro">Un solo servicio con tres momentos de cobro. Sin planes, sin niveles, sin letra chica.</p>
 
-    <div class="destacado">Que tu conocimiento pese más que tu contenido. Nuestro trabajo es que llegues a quien te necesita.</div>
+    <div class="planes">
+      <div class="plan">
+        <span class="cuando etiqueta">Una sola vez</span>
+        <h3>Instalación</h3>
+        <div class="precio">
+          <span class="monto" data-gtq="Q6,075" data-usd="$795">Q6,075</span>
+          <span class="forma">En 3 cuotas · listo en 3 meses</span>
+        </div>
+        <span class="incluye-titulo etiqueta">Incluye</span>
+        <ul>
+          <li>Tu página web</li>
+          <li>Configuración de Facebook e Instagram para anunciarte</li>
+          <li>WhatsApp empresarial conectado a los anuncios</li>
+          <li>Anuncios organizados por tratamiento</li>
+          <li>Sistema para saber qué anuncio trae a cada paciente</li>
+          <li>Sesión de fotos y video, con guion listo</li>
+        </ul>
+      </div>
 
-    <div class="tabla-envoltura">
-      <table class="tabla-inversion">
-        <thead>
-          <tr>
-            <th class="etiqueta"></th>
-            <th><span class="fase">Instalación</span><span class="cuando">Una sola vez</span></th>
-            <th><span class="fase">Operación</span><span class="cuando">Cada mes</span></th>
-            <th><span class="fase">Renovación</span><span class="cuando">Cada 4–6 meses</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Página web (landing page)</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Formulario de filtrado</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Automatización de WhatsApp</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Calendario conectado</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Perfiles de redes sociales y cuentas configuradas</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Reportes automáticos</td><td>●</td><td>—</td><td>—</td></tr>
-          <tr><td>Sesión de fotos y video</td><td>●</td><td>—</td><td>●</td></tr>
-          <tr><td>Guion y dirección de contenido</td><td>●</td><td>—</td><td>●</td></tr>
-          <tr><td>Estructura de anuncios en Meta</td><td>●</td><td>●</td><td>●</td></tr>
-          <tr><td>Gestión de la cuenta de anuncios</td><td>—</td><td>●</td><td>—</td></tr>
-          <tr><td>Ajustes y optimización</td><td>—</td><td>●</td><td>—</td></tr>
-          <tr><td>Reporte mensual e insights</td><td>—</td><td>●</td><td>—</td></tr>
-          <tr><td>Soporte directo</td><td>—</td><td>●</td><td>—</td></tr>
-          <tr class="fila-dato"><td>Tiempo de entrega</td><td>3 meses</td><td>Continuo</td><td>2 semanas</td></tr>
-          <tr class="fila-dato"><td>Compromiso mínimo</td><td>—</td><td>6 meses</td><td>—</td></tr>
-          <tr class="fila-inversion">
-            <td>Inversión</td>
-            <td>Q5,950<span class="detalle-precio">en 3 cuotas</span></td>
-            <td>Q595<span class="detalle-precio">al mes</span></td>
-            <td>Q4,450<span class="detalle-precio">por sesión</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="plan destacado-plan">
+        <span class="cuando etiqueta">Cada mes</span>
+        <h3>Manejo mensual</h3>
+        <div class="precio">
+          <span class="monto" data-gtq="Q650" data-usd="$85">Q650</span>
+          <span class="forma">Al mes · compromiso mínimo de 6 meses</span>
+        </div>
+        <span class="incluye-titulo etiqueta">Incluye</span>
+        <ul>
+          <li>Manejo de los anuncios</li>
+          <li>Ajustes para bajar el costo por paciente</li>
+          <li>Informe mensual con recomendaciones</li>
+          <li>Soporte directo</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <span class="cuando etiqueta">Cada 4 a 6 meses</span>
+        <h3>Renovación</h3>
+        <div class="precio">
+          <span class="monto" data-gtq="Q4,200" data-usd="$550">Q4,200</span>
+          <span class="forma">Por sesión · lista en 2 semanas</span>
+        </div>
+        <span class="incluye-titulo etiqueta">Incluye</span>
+        <ul>
+          <li>Nueva sesión de fotos y video</li>
+          <li>Nuevos guiones</li>
+          <li>Anuncios renovados</li>
+        </ul>
+      </div>
+    </div>
+    <p class="no-incluye"><strong>No incluye:</strong> publicaciones diarias en redes, respuesta a comentarios ni diseño de logo.</p>
+
+    <h3 class="pagos-titulo">Cómo se paga</h3>
+    <p style="max-width:56ch">Además de Mediteca, hay un tercer pago: lo que cobran Facebook e Instagram por mostrar tus anuncios.</p>
+    <div class="pagos">
+      <div class="pago">
+        <h3>Instalación</h3>
+        <p>Se paga una sola vez, al inicio, en 3 cuotas.</p>
+        <span class="a-quien">Se paga a Mediteca</span>
+      </div>
+      <div class="pago">
+        <h3>Manejo mensual</h3>
+        <p>Cubre el trabajo de cada mes. Compromiso mínimo de 6 meses.</p>
+        <span class="a-quien">Se paga a Mediteca</span>
+      </div>
+      <div class="pago externo">
+        <h3>Presupuesto de anuncios</h3>
+        <p>Lo defines tú. Es lo que cobran Facebook e Instagram por mostrar los anuncios.</p>
+        <span class="a-quien">Se paga a Facebook e Instagram</span>
+      </div>
     </div>
 
     <div class="ancla">
@@ -609,12 +663,82 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
     </div>
   </div>
 </section>
-<!-- ================= 09 · ADMISIÓN ================= -->
-<section class="seccion oscuro" id="admision" id="s09">
-  <div class="encabezado etiqueta"><span>Mediteca</span><span>Admisión</span><span>08</span></div>
+
+<!-- ================= 07 · QUIÉN ESTÁ DETRÁS ================= -->
+<section class="seccion" id="s07">
+  <div class="encabezado etiqueta"><span>Quién está detrás</span><span>07</span></div>
+  <div class="cuerpo">
+    <div class="partido invertido">
+      <div class="texto">
+        <h2>Ocho años conectando pacientes con médicos especialistas</h2>
+        <p class="intro">Hemos creado campañas para clínicas especializadas en Estados Unidos: medicina integrativa, restauración capilar, tratamiento vascular.</p>
+        <p>Somos expertos en entender al médico y comunicar su valor a los pacientes que lo necesitan y, lo más importante, a los pacientes que están dispuestos a pagarlo.</p>
+        <p><strong>Conocemos la dinámica clínica. Sabemos qué pasa entre el clic y la sala de espera.</strong></p>
+      </div>
+      <div class="foto"><img src="/img/antecedentes.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 · PREGUNTAS ================= -->
+<section class="seccion" id="s08">
+  <div class="encabezado etiqueta"><span>Preguntas</span><span>08</span></div>
+  <div class="cuerpo">
+    <h2>Preguntas frecuentes</h2>
+
+    <div class="preguntas">
+      <details>
+        <summary>¿El presupuesto de anuncios está incluido?</summary>
+        <div class="respuesta">No. Lo defines tú y se paga directamente a Facebook e Instagram. No es ganancia de Mediteca: va completo a mostrar tus anuncios.</div>
+      </details>
+      <details>
+        <summary>¿Quién responde a los pacientes?</summary>
+        <div class="respuesta">Tú o tu asistente. Las conversaciones con pacientes requieren criterio médico, por eso Mediteca no responde preguntas clínicas.</div>
+      </details>
+      <details>
+        <summary>¿Tengo que aprender a usar Facebook?</summary>
+        <div class="respuesta">No. Nosotros creamos y manejamos los anuncios. Tú solo atiendes los mensajes que llegan a tu WhatsApp.</div>
+      </details>
+      <details>
+        <summary>¿Hay un compromiso mínimo?</summary>
+        <div class="respuesta">Sí, 6 meses de manejo mensual. Es el tiempo necesario para ajustar los anuncios y bajar el costo por paciente.</div>
+      </details>
+      <details>
+        <summary>¿Qué necesitan de mí y de mi asistente?</summary>
+        <div class="respuesta">Que tu asistente responda el WhatsApp en menos de 15 minutos, que anote cada día si el paciente llegó, y que aprueben los textos de los anuncios en 48 horas.</div>
+      </details>
+      <details>
+        <summary>¿Qué no incluye el servicio?</summary>
+        <div class="respuesta">Publicaciones diarias en redes, respuesta a comentarios ni diseño de logo. Nos enfocamos solo en que los pacientes lleguen a tu consulta.</div>
+      </details>
+      <details>
+        <summary>¿Trabajan fuera de Guatemala?</summary>
+        <div class="respuesta">Sí. También trabajamos con médicos en El Salvador, con precios en dólares.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 · CÓMO EMPEZAMOS ================= -->
+<section class="seccion" id="s09">
+  <div class="encabezado etiqueta"><span>Cómo empezamos</span><span>09</span></div>
+  <div class="cuerpo">
+    <h2>Cómo empezamos</h2>
+    <div class="proceso">
+      <div class="paso"><span class="num">01</span><h3>Llamada</h3><p>Treinta minutos. Tu especialidad, tu consultorio, tus objetivos. Sales de ahí con un plan claro, trabajemos juntos o no.</p></div>
+      <div class="paso"><span class="num">02</span><h3>Instalación</h3><p>Construimos el sistema completo. Tú solo grabas una sesión de contenido con guion listo.</p></div>
+      <div class="paso"><span class="num">03</span><h3>Lanzamiento</h3><p>Encendemos las campañas con todo medido desde el primer día.</p></div>
+      <div class="paso"><span class="num">04</span><h3>Operación</h3><p>Optimizamos mes a mes. Informe mensual con los tres números que importan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 · ADMISIÓN ================= -->
+<section class="seccion oscuro" id="admision">
+  <div class="encabezado etiqueta"><span>Admisión</span><span>10</span></div>
   <div class="cuerpo" style="text-align:center">
     <h2 style="margin-inline:auto">Empecemos con una llamada de 30 minutos</h2>
-    <p class="intro" style="margin:0 auto 46px;opacity:.85">Completá la ficha y te escribimos por WhatsApp para coordinarla.</p>
+    <p class="intro" style="margin:0 auto 46px;opacity:.85">Completa la ficha y te escribimos por WhatsApp para coordinarla.</p>
 
     <div class="admision" id="ficha">
       <div class="barra etiqueta"><span>Ficha de admisión</span><span>MDT-09</span></div>
@@ -627,12 +751,12 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
           </div>
           <div class="campo">
             <label for="whatsapp"><span class="n">02</span>WhatsApp</label>
-            <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="+502">
+            <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="+502 / +503">
           </div>
           <div class="campo">
             <label for="especialidad"><span class="n">03</span>Especialidad</label>
             <select id="especialidad" name="especialidad" required>
-              <option value="">Seleccioná una opción</option>
+              <option value="">Selecciona una opción</option>
               <option>Traumatología y Ortopedia</option>
               <option>Oftalmología</option>
               <option>Cardiología</option>
@@ -645,9 +769,9 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
             </select>
           </div>
           <div class="campo">
-            <label for="consultorio"><span class="n">04</span>¿Tenés consultorio operando?</label>
+            <label for="consultorio"><span class="n">04</span>¿Tienes consultorio operando?</label>
             <select id="consultorio" name="consultorio" required>
-              <option value="">Seleccioná una opción</option>
+              <option value="">Selecciona una opción</option>
               <option value="Sí, ya atiende">Sí, ya estoy atendiendo</option>
               <option value="Abre en menos de 3 meses">Abro en menos de 3 meses</option>
               <option value="Todavía no">Todavía no</option>
@@ -665,7 +789,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
           <div class="campo">
             <label for="seguimiento"><span class="n">06</span>¿Quién contesta los mensajes de pacientes?</label>
             <select id="seguimiento" name="seguimiento" required>
-              <option value="">Seleccioná una opción</option>
+              <option value="">Selecciona una opción</option>
               <option>Yo mismo</option>
               <option>Mi asistente</option>
               <option>Nadie por ahora</option>
@@ -680,14 +804,16 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
         <input type="hidden" name="utm_term">
         <input type="hidden" name="referente">
         <input type="hidden" name="pagina">
+        <input type="hidden" name="moneda_vista" id="monedaVista" value="gtq">
 
-            <div class="envio">
+        <div class="envio">
           <button type="submit" class="boton">Enviar ficha</button>
           <p class="nota">Respondemos por WhatsApp dentro de las 24 horas hábiles.</p>
           <p id="errorEnvio" style="display:none;color:#B4453A;font-size:13px;margin-top:12px">
-            No pudimos enviar la ficha. Escribinos por WhatsApp al +502 5200 3502.
+            No pudimos enviar la ficha. Escríbenos por WhatsApp al +502 5200 3502.
           </p>
         </div>
+      </form>
 
       <div class="resultado" id="aprobado">
         <span class="sello">Ficha recibida</span>
@@ -698,7 +824,7 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
       <div class="resultado" id="espera">
         <span class="sello">Ficha recibida</span>
         <h3>Gracias. Nos pondremos en contacto lo antes posible.</h3>
-        <p>Acabas de dar el primer paso para encontrar a tus pacientes, para demostrar tus habilidades y dedicarte a tu práctica privada.</p>
+        <p>Acabas de dar el primer paso para encontrar a tus pacientes, demostrar tus habilidades y dedicarte a tu práctica privada.</p>
       </div>
     </div>
   </div>
@@ -710,28 +836,29 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
     <div class="pie-rejilla">
       <div>
         <h3 class="etiqueta">Mediteca</h3>
-        <p style="font-size:15px;opacity:.75;max-width:34ch;margin-bottom:20px">Sistemas de adquisición de pacientes para especialistas médicos en Guatemala.</p>
+        <p style="font-size:15px;opacity:.75;max-width:34ch;margin-bottom:20px">Sistemas de adquisición de pacientes para médicos especialistas en Guatemala y El Salvador.</p>
         <a href="https://wa.me/50252003502" target="_blank" rel="noopener">WhatsApp · +502 5200 3502</a>
       </div>
 
       <div>
         <h3 class="etiqueta">Navegación</h3>
-        <a href="#s01">Situación</a>
-        <a href="#s02">Sistema</a>
-        <a href="#s05">Nosotros</a>
-        <a href="#s06">Casos</a>
-        <a href="#s08">Inversión</a>
+        <a href="#s01">Problema</a>
+        <a href="#s02">Cómo funciona</a>
+        <a href="#s05">Caso</a>
+        <a href="#s06">Inversión</a>
+        <a href="#s08">Preguntas</a>
         <a href="#admision">Agendar llamada</a>
       </div>
 
       <div>
-        <h3 class="etiqueta">Seguinos</h3>
+        <h3 class="etiqueta">Síguenos</h3>
         <a href="https://www.instagram.com/mediteca.gt" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61593622200637" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
+  </div>
   <div class="pie-base etiqueta">
-    <span>Mediteca</span><span>meditecagt.com</span><span>Guatemala</span>
+    <span>Mediteca</span><span>meditecagt.com</span><span>Guatemala · El Salvador</span>
   </div>
 </footer>
 
@@ -739,21 +866,29 @@ input:focus,select:focus{outline:none;border-bottom-width:2px;padding-bottom:7px
 <div class="barra-fija" id="barraFija">
   <div class="detalle etiqueta">
     <span>Sistema de adquisición de pacientes</span>
-    <span>Instalación + operación mensual</span>
+    <span>Instalación + manejo mensual</span>
   </div>
   <a href="#admision" class="boton-nav">Agendar llamada</a>
 </div>
 
 <script>
-/* --- Pestañas --- */
-document.querySelectorAll('.pestana').forEach(function(b){
-  b.addEventListener('click',function(){
-    document.querySelectorAll('.pestana').forEach(function(x){x.setAttribute('aria-selected','false')});
-    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('activo')});
-    b.setAttribute('aria-selected','true');
-    document.getElementById(b.dataset.panel).classList.add('activo');
+/* --- Moneda GTQ / USD --- */
+(function(){
+  var botones=document.querySelectorAll('.moneda button');
+  var montos=document.querySelectorAll('.monto');
+  var oculto=document.getElementById('monedaVista');
+  function aplicar(m){
+    botones.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.moneda===m ? 'true':'false')});
+    montos.forEach(function(el){el.textContent = el.getAttribute('data-'+m)});
+    if(oculto) oculto.value=m;
+  }
+  botones.forEach(function(b){
+    b.addEventListener('click',function(){
+      aplicar(b.dataset.moneda);
+      if(typeof gtag==='function'){ gtag('event','cambio_moneda',{moneda:b.dataset.moneda}); }
+    });
   });
-});
+})();
 
 /* --- Parámetros de campaña --- */
 (function(){
@@ -783,7 +918,6 @@ document.getElementById('formulario').addEventListener('submit',function(e){
           content_category: califica ? 'calificado' : 'espera'
         });
       }
-
       if(typeof gtag==='function'){
         gtag('event','generate_lead',{
           especialidad: f.especialidad.value,
@@ -800,6 +934,7 @@ document.getElementById('formulario').addEventListener('submit',function(e){
       document.getElementById('errorEnvio').style.display='block';
     });
 });
+
 /* --- Barra fija --- */
 (function(){
   var barra=document.getElementById('barraFija'), top=document.getElementById('top');
@@ -808,16 +943,6 @@ document.getElementById('formulario').addEventListener('submit',function(e){
   },{passive:true});
 })();
 
-/* --- Aparición --- */
-(function(){
-  if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.revela').forEach(function(s){s.classList.add('dentro')});return;
-  }
-  var obs=new IntersectionObserver(function(en){
-    en.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('dentro');obs.unobserve(e.target);} });
-  },{threshold:0.06});
-  document.querySelectorAll('.revela').forEach(function(s){obs.observe(s)});
-})();
 /* --- Menú móvil --- */
 (function(){
   var b=document.getElementById('navBoton'), m=document.getElementById('navEnlaces');
@@ -832,10 +957,7 @@ document.getElementById('formulario').addEventListener('submit',function(e){
     });
   });
 })();
-   
 </script>
 
 </body>
 </html>
-
-
