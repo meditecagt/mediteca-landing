@@ -189,19 +189,25 @@ p+p{margin-top:1.05em}
 .dato span{font-size:13px;opacity:.7;display:block;max-width:24ch}
 
 /* ---------- 01 · Problema: flujo ---------- */
-.flujo{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px}
+.flujo{display:grid;gap:1px;background:var(--tinta);border:var(--regla);margin-top:44px;list-style:none}
 @media(min-width:900px){.flujo{grid-template-columns:repeat(4,1fr)}}
 .flujo li{background:var(--papel);padding:26px 24px 30px;position:relative}
 .flujo li:last-child{background:var(--tinta);color:var(--papel)}
 .flujo .n{font-variation-settings:'wdth' 125,'wght' 500;font-size:13px;opacity:.45;display:block;margin-bottom:14px}
 .flujo strong{font-variation-settings:'wdth' 112,'wght' 500;font-weight:normal;text-transform:uppercase;font-size:18px;line-height:1.15;display:block}
+/* Flecha entre pasos: misma pieza en los tres cortes */
 .flujo li:not(:last-child)::after{
-  content:'';position:absolute;z-index:2;background:var(--blanco);border:var(--regla);
-  width:14px;height:14px;transform:rotate(45deg);
-  left:24px;bottom:-8px;border-top:none;border-left:none;
+  content:'';position:absolute;z-index:2;
+  width:28px;height:28px;border-radius:50%;
+  border:var(--regla);
+  background:var(--blanco) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23262C3A' stroke-width='1.6'/%3E%3C/svg%3E") center/12px no-repeat;
+  left:24px;bottom:-15px;
 }
 @media(min-width:900px){
-  .flujo li:not(:last-child)::after{left:auto;right:-8px;bottom:auto;top:50%;margin-top:-7px;border:var(--regla);border-left:none;border-bottom:none}
+  .flujo li:not(:last-child)::after{
+    left:auto;bottom:auto;right:-15px;top:50%;margin-top:-14px;
+    background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 2l4 4-4 4' fill='none' stroke='%23262C3A' stroke-width='1.6'/%3E%3C/svg%3E");
+  }
 }
 .remate{margin-top:40px;padding-top:24px;border-top:var(--regla);font-variation-settings:'wdth' 112,'wght' 500;font-size:clamp(18px,2.1vw,25px);line-height:1.3;max-width:40ch}
 
